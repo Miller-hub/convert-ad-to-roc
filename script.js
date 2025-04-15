@@ -17,7 +17,7 @@ function toROC() {
   const resultEl = document.getElementById('result');
 
   if (isNaN(input) || input < 1912) {
-    resultEl.innerText = '請輸入有效的西元年（1912 年之後）';
+    resultEl.innerText = '⚠️ 請輸入有效的西元年（1912 年之後）';
     return;
   }
 
@@ -25,9 +25,9 @@ function toROC() {
   const ganzhi = getGanzhi(input);
   const zodiac = getZodiac(input);
   resultEl.innerHTML = `
-    西元 ${input} 年<br/>
-    → 民國 ${roc} 年<br/>
-    → ${ganzhi}　${zodiac}
+    ⏱ 西元 ${input} 年<br/>
+    👉 民國 ${roc} 年<br/>
+    🧧 ${ganzhi}　${zodiac}
   `;
 }
 
@@ -36,7 +36,7 @@ function toAD() {
   const resultEl = document.getElementById('result');
 
   if (isNaN(input) || input < 1) {
-    resultEl.innerText = '請輸入有效的民國年（1 年以上）';
+    resultEl.innerText = '⚠️ 請輸入有效的民國年（1 年以上）';
     return;
   }
 
@@ -44,8 +44,20 @@ function toAD() {
   const ganzhi = getGanzhi(ad);
   const zodiac = getZodiac(ad);
   resultEl.innerHTML = `
-    民國 ${input} 年<br/>
-    → 西元 ${ad} 年<br/>
-    → ${ganzhi}　${zodiac}
+     民國 ${input} 年<br/>
+     西元 ${ad} 年<br/>
+     ${ganzhi}　${zodiac}
   `;
+}
+
+function clearAll() {
+  const inputEl = document.getElementById('inputYear');
+  const resultEl = document.getElementById('result');
+  
+  inputEl.value = '';
+  resultEl.innerHTML = '';
+  
+  // 移除游標錯位或錯誤提示狀態
+  inputEl.blur();
+  setTimeout(() => inputEl.focus(), 100);
 }
