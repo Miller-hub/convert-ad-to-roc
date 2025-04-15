@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>西元 ⇄ 民國 + 天干地支 生肖</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2em;
+    }
+    input {
+      padding: 0.5em;
+      font-size: 1em;
+      width: 200px;
+    }
+    button {
+      padding: 0.5em 1em;
+      font-size: 1em;
+      margin: 0.5em;
+    }
+    #result {
+      margin-top: 1.5em;
+      font-size: 1.2em;
+      color: #007700;
+      line-height: 1.8em;
+    }
+  </style>
+</head>
+<body>
+  <h1>西元 ⇄ 民國 + 天干地支與生肖</h1>
+  
+  <input type="number" id="inputYear" placeholder="輸入西元或民國年" />
+  <br/>
+  <button onclick="toROC()">轉為民國</button>
+  <button onclick="toAD()">轉為西元</button>
+  
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
